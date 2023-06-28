@@ -34,3 +34,11 @@ for epoch in range(n_epochs+1):
 
     if epoch % 100 == 0:
         print(f'epoch {epoch}/{n_epochs} W :{W.item()}, b :{b.item()}, Cost{cost.item()}')
+
+# 자동미분 실습하기
+w = torch.tensor(2.0, requires_grad=True)
+y = w**2
+z = 2*y+5
+
+z.backward()
+print(f'수식을 w로 미분한 값 {w.grad}')
